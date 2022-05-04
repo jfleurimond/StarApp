@@ -1,10 +1,17 @@
 import "./styles.css";
+import { FaStar } from "react-icons/fa";
 
 export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+  function Star() {
+    return <FaStar color="red" />;
+  }
+
+  function LengthOfStarRating(length) {
+    return [...Array(length)];
+  }
+
+  function CreateStars({ totalStars = 5 }) {
+    return LengthOfStarRating(totalStars).map((n, i) => <Star />);
+  }
+  return <CreateStars totalStars={3} />;
 }
